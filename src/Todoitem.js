@@ -13,7 +13,12 @@ const Todoitem = ({todo}) => {
     
     let  dispatch = useDispatch();
     return (
+
+  
+    
+
         <div className="row mx-2 align-items-center">
+        
         
                 <div>#{todo.id.length > 1 ? todo.id[2] : todo.id}</div>
 

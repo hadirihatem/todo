@@ -1,10 +1,11 @@
 /*  import {v4 as uuid} from 'uuid'
  */ 
-export let todos=[
+export let initState={
+    todos:[
      {
          id:1,
          name:"one",
-         done:false
+         done:true
      },
      {
         id:2,
@@ -22,5 +23,6 @@ export let todos=[
         done:false
     }
 
- ]
+ ],
+ filter:null}
  
