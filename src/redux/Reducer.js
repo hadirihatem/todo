@@ -1,30 +1,31 @@
 import { ADD_TODO, DELATE_TODO, UPDATE_TODO ,DONE_TODO,FILTER_TODO} from "./Action";
 
-import { initState } from "./State";
+import { initstate } from "./State";
 
 
 
-export const reducer = (state = initState, action) => {
+export const reducer = (state = initstate, action) => {
   let newTodos;
    switch (action.type) {
     case ADD_TODO:
-       newTodos = [...state];
+       newTodos = [...state.todos];
       newTodos.push(action.payload);
-      return newTodos;
+      return {...state,todos:newTodos};
       case DONE_TODO:
-        return state.map(el=>{
+        return {...state,todos:state.todos.map(el=>{
           if (el.id===action.payload){
            el.done=!el.done
           }
           return el
         })
+      }
 
     case DELATE_TODO:
-       newTodos = [...state];
+       newTodos = [...state.todos];
       newTodos = newTodos.filter((todo) => todo.id !== action.payload);
-      return newTodos;
-      case UPDATE_TODO:
-         newTodos = [...state];
+      return  {...state,todos:newTodos};
+    /*   case UPDATE_TODO:
+         newTodos = [...state.todos];
          let index = -1;
          for (let i = 0; i < newTodos.length; i++) {
              index++;
@@ -36,7 +37,16 @@ export const reducer = (state = initState, action) => {
          if (index !== -1) {
              newTodos[index] = action.payload;
              return newTodos;
-         }
+         } */
+         case UPDATE_TODO:
+      newTodos = [...state.todos];
+      return {...state,todos:state.todos.map((el) => {
+        if (el.id === action.payload.id) {
+          return action.payload
+        }
+        return el;
+      })
+      };
          case FILTER_TODO:
            return {
             ...state,

@@ -1,7 +1,6 @@
 /*  import {v4 as uuid} from 'uuid'
  */ 
-export let initState={
-    todos:[
+export let initstate={ todos:[
      {
          id:1,
          name:"one",
@@ -21,8 +20,9 @@ export let initState={
         id:4,
         name:"four", 
         done:false
-    }
+    },
+],
+    filter:null ,
+};
 
- ],
- filter:null}
- 
+

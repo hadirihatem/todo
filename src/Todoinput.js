@@ -1,12 +1,11 @@
 import { addTodo,  filtertodo} from './redux/Action'
 import {v4 as uuid} from 'uuid'
 import {useState} from 'react'
-import {useDispatch,useSelector} from 'react-redux'
-import button, { Button } from 'bootstrap'
+import {useDispatch} from 'react-redux'
+import button from 'bootstrap'
 import 'bootstrap/dist/css/bootstrap.css';
 
 const Todoinput = () => {
-  const filter = useSelector(state => state.filter)
     const [name, setName] = useState();
     let  dispatch = useDispatch();
     return (
@@ -33,7 +32,7 @@ const Todoinput = () => {
 
             <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown button
+              filter
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item"  onClick={()=>dispatch( filtertodo(null))} >ALL</a>

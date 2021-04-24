@@ -4,9 +4,8 @@ import { useSelector } from "react-redux";
 
 
 const Todolist = ({todos}) => {
-  
-    //console.log(todos.todos)
-    //const filter = useSelector(state => state.filter)
+    
+
     return (
         <div className="my-3">
               {todos.map(todo=>{
